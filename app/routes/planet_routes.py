@@ -53,12 +53,6 @@ def get_all_planets():
     if name_param:
         query = query.where(Planet.name == name_param).order_by(Planet.id)
     
-    description_param = request.args.get("description")
-    if decription_param:
-        query = query.where(Planet.description.ilike(f”%{desctiption_param}%")).order_by(Cat.id)
-                                                     
-
-
     result_list = []
 
     for planet in planets:
