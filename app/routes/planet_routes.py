@@ -54,10 +54,8 @@ def get_all_planets():
         query = query.where(Planet.name == name_param).order_by(Planet.id)
     
     description_param = request.args.get("description")
-    if decription_param:
-        query = query.where(Planet.description.ilike(f”%{desctiption_param}%")).order_by(Cat.id)
-                                                     
-
+    if description_param:
+        query = query.where(Planet.description.ilike(f"%{description_param}%")).order_by(Planet.id)
 
     result_list = []
 
@@ -116,7 +114,3 @@ def delete_planet(planet_id):
     db.session.commit()
 
     return Response(status = 204, mimetype = "application/json")
-
-
-    
-
