@@ -1,7 +1,7 @@
 """create moon table with size, description, has_life
 
 Revision ID: 1a7e9cac2a91
-Revises: 734841dd5d17
+Revises: a33b87bf42cc
 Create Date: 2025-11-04 14:23:51.475735
 
 """
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision = '1a7e9cac2a91'
-down_revision = '734841dd5d17'
+down_revision = 'a33b87bf42cc'
 branch_labels = None
 depends_on = None
 

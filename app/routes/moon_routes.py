@@ -8,6 +8,6 @@ bp = Blueprint("moon_bp", __name__, url_prefix="/moons")
 
 @bp.get("/<int:id>")
 def get_some_moon(id):
-    moon = validate_model(id)
+    moon = validate_model(Moon, id)
 
     return moon.to_dict(), 200
