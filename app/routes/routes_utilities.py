@@ -15,4 +15,16 @@ def validate_model(cls, id):
         not_found = {"message": f"{cls.__name__} id {id} not found"}
         abort(make_response(not_found, 404))
 
-    return model 
+    return model
+
+def create_model(cls, model_data):
+    try:
+        new_model = cls.from_dict(model_data)
+    except KeyError as e:
+        response = {"message": f"Invalid request: missing {e.args[0]}"}
+        abort(make_response(response, 400))
+
+    db.session.add(new_model)
+    db.session.commit()
+
+    return new_model.to_dict(), 201
